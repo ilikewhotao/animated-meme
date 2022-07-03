@@ -10,13 +10,13 @@
     <div class="container">
       <form onsubmit="return goSubmit(event)">
         <input type="text" name="username" />
-        <input type="tel" name="phone" id="" />
+        <input type="tel" name="phone" />
         <button>提交</button>
       </form>
     </div>
     <script>
       function goSubmit(e) {
-        let formData = new FormData(e.target);
+        const formData = new FormData(e.target);
         const username = formData.get("username");
         console.log(username);
         return false;
