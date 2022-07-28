@@ -1,0 +1,64 @@
+.header_banner {
+  display: flex;
+  border: 1px solid #dadada;
+  margin-top: 2rem;
+}
+.header_banner .header_left {
+  width: 50%;
+}
+.header_banner .header_left img {
+  display: block;
+  width: 100%;
+}
+.header_banner .header_right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 导航模块 */
+.uni_nav_style_1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.uni_nav_style_1 a {
+  color: #1b1b1b;
+  text-decoration: none;
+  width: 400px;
+  padding: 2rem 0;
+  text-align: center;
+  border-left: 1px solid #dadada;
+  border-top: 1px solid #dadada;
+  box-sizing: border-box;
+}
+.uni_nav_style_1 a:nth-child(3n) {
+  border-right: 1px solid #dadada;
+}
+.uni_nav_style_1 a:nth-child(4),
+.uni_nav_style_1 a:nth-child(5),
+.uni_nav_style_1 a:nth-child(6) {
+  border-bottom: 1px solid #dadada;
+}
+.uni_warp {
+  display: none;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dadada;
+}
+.uni_nav_style_1_top {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.uni_nav_style_1_top a {
+  color: #1b1b1b;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+  padding: 2rem 0;
+}
