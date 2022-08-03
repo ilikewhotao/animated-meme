@@ -46,7 +46,6 @@
   width: 100%;
   position: fixed;
   top: 0;
-  width: 100%;
   background-color: #ffffff;
   border-bottom: 1px solid #dadada;
 }
@@ -61,4 +60,8 @@
   flex: 1;
   text-align: center;
   padding: 2rem 0;
+}
+
+.uni_nav_style_1_top a.active {
+  border-bottom: 2px solid #1b1b1b;
 }

@@ -7,8 +7,8 @@ const navTopStyle = (h) => {
     const p = pList[pList.length - 1 - i];
     if (h > p.offsetTop - 100) {
       navTop.style.display = "block";
-      aList.map((item) => (item.style.border = "none"));
-      a.style.borderBottom = "2px solid #1b1b1b";
+      aList.map((item) => (item.className = "nav_item"));
+      a.className = "nav_item active";
       break;
     }
     if (i === pList.length - 1 && h < p.offsetTop - 100) {
