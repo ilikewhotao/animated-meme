@@ -21,3 +21,7 @@ window.onscroll = () => {
     document.documentElement.scrollTop || document.body.scrollTop;
   navTopStyle(scrollTop);
 };
+
+const toTop = () => {
+  window.scrollTo(0, 0);
+};

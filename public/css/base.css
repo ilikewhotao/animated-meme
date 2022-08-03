@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+div {
+  line-height: 1.5;
+}
+html {
+  /* scroll-behavior: smooth; */
+  font-family: "阿里巴巴普惠体 2.0", SimHei;
+}
+/* uni */
+.uni_container {
+  width: 100%;
+}
+.uni_content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.uni_title {
+  font-size: 24px;
+  text-align: center;
+  padding: 4rem;
+}
