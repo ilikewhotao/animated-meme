@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=750, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./public/css/font.css">
+  <style>
+    .wrapper {
+      width: 750px;
+      margin: 0 auto;
+      font-family: "UniqloProRegular", "syht_Regular";
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+      border-bottom: 1px solid #dadada;
+
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    .list_title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .list_content {
+      overflow: hidden;
+      transition: all .4s;
+      padding: 0 20px;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      transition: all .2s;
+      transform: rotate(0deg);
+    }
+
+    .icon.active {
+      transform: rotate(90deg);
+    }
+
+    .content_inner {
+      padding: 20px;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul>
+      <li class="item">
+        <div class="list_title">
+          <div class="title">折叠一</div>
+          <div class="icon">
+            <img src="./public/image/arrow-right.svg" alt="">
+          </div>
+        </div>
+        <div class="list_content">
+          <div class="content_inner">
+            <h3>标题</h3>
+            <p>内容………………</p>
+          </div>
+
+        </div>
+      </li>
+      <li class="item">
+        <div class="list_title">
+          <div class="title">折叠二</div>
+          <div class="icon">
+            <img src="./public/image/arrow-right.svg" alt="">
+          </div>
+        </div>
+        <div class="list_content">
+          <div class="content_inner">
+            <p>lalala</p>
+          </div>
+        </div>
+      </li>
+      <li class="item">
+        <div class="list_title">
+          <div class="title">折叠三</div>
+          <div class="icon">
+            <img src="./public/image/arrow-right.svg" alt="">
+          </div>
+        </div>
+        <div class="list_content">
+          <div class="content_inner">
+            <p>内容………………</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script>
+
+    const listTitle = document.querySelectorAll('.list_title');
+    const listContent = document.querySelectorAll('.list_content');
+    const contentHeight = []
+    listContent.forEach((item) => {
+      contentHeight.push(item.offsetHeight + 'px')
+      item.style.height = 0
+    })
+
+    listTitle.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        listContent.forEach((item, i) => {
+          if (i !== index) {
+            item.style.height = 0
+            listTitle[i].children[1].classList.remove('active')
+          }
+        })
+        const height = listContent[index].offsetHeight
+        listContent[index].style.height = height === 0 ? contentHeight[index] : 0
+        listTitle[index].children[1].classList.toggle('active')
+      })
+    })
+
+  </script>
+</body>
+
+</html>
