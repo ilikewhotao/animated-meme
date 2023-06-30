@@ -1,66 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .container {
-        width: 400px;
-        margin: 0 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="add">
-        <input type="text" id="add" />
-        <button onclick="add()">添加</button>
-      </div>
-      <div class="search">
-        <input type="text" id="search" />
-        <button onclick="search()">检索</button>
-      </div>
-      <div class="box"></div>
-      <script>
-        /* 模拟后端接收的数据 */
-        const list = [
-          { title: '王小美' },
-          { title: '李四' },
-          { title: '张强' },
-          { title: '李元芳' },
-          { title: '大佬李' }
-        ];
-        /* 创建添加方法 */
-        const add = () => {
-          const addValue = document.querySelector('#add').value;
-          list.push({ title: addValue });
-          document.querySelector('#add').value = '';
-          /* 添加完之后重新搜索渲染 */
-          search();
-        };
 
-        /* 创建搜索方法 */
-        const search = () => {
-          const searchValue = document.querySelector('#search').value;
-          const box = document.querySelector('.box');
-          box.innerHTML = ``;
-          if (searchValue === '') {
-            list.forEach(item => {
-              box.innerHTML += `<div>${item.title}</div>`;
-            });
-          } else {
-            list.forEach(item => {
-              if (item.title.indexOf(searchValue) > -1) {
-                box.innerHTML += `<div>${item.title}</div>`;
-              }
-            });
-          }
-        };
-        /* 页面第一次加载的时候执行一次 */
-        search();
-      </script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .polling_message {
+      color: white;
+      float: left;
+      margin-right: 2%;
+    }
+
+    .view_port {
+      background-color: black;
+      height: 25px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .cylon_eye {
+      background-color: red;
+      background-image: linear-gradient(to right,
+          rgba(0, 0, 0, .9) 25%,
+          rgba(0, 0, 0, .1) 50%,
+          rgba(0, 0, 0, .9) 75%);
+      color: white;
+      height: 100%;
+      width: 20%;
+
+      -webkit-animation: 4s linear 0s infinite alternate move_eye;
+      animation: 4s linear 0s infinite alternate move_eye;
+    }
+
+    @-webkit-keyframes move_eye {
+      from {
+        margin-left: -20%;
+      }
+
+      to {
+        margin-left: 100%;
+      }
+    }
+
+    @keyframes move_eye {
+      from {
+        margin-left: -20%;
+      }
+
+      to {
+        margin-left: 100%;
+      }
+    }
+  </style>
+  <div class="view_port">
+    <div class="polling_message">
+      Listening for dispatches
     </div>
-  </body>
+    <div class="cylon_eye"></div>
+  </div>
+
+</body>
+
 </html>
